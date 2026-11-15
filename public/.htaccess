@@ -1,0 +1,9 @@
+# Apache: public/ is the only folder that may be served.
+Require all granted
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+
+Options -Indexes

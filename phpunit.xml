@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- PHPUnit 9.6 configuration (PHP 8.0 compatible). Run: vendor\bin\phpunit -->
+<phpunit bootstrap="tests/phpunit-bootstrap.php" colors="true" testdox="true" failOnRisky="true">
+    <testsuites>
+        <testsuite name="LocalSpot">
+            <directory suffix="Test.php">tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

@@ -1,0 +1,4 @@
+# Owner uploads (photos and menu photos). Files get random names and a fixed image extension.
+*
+!.gitignore
+!.htaccess

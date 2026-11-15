@@ -1,0 +1,23 @@
+{
+    "name": "localspot/localspot",
+    "description": "LocalSpot local destination CMS on SpotCore, a custom PHP framework (IPT final project)",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.0",
+        "ext-pdo": "*",
+        "ext-curl": "*",
+        "ext-mbstring": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.6"
+    },
+    "config": {
+        "platform": { "php": "8.0.30" },
+        "sort-packages": true
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test:spotcore": "php tests/run.php"
+    }
+}

@@ -1,0 +1,3 @@
+Inter (Regular, Medium, SemiBold) by The Inter Project Authors (Rasmus Andersson).
+Licensed under the SIL Open Font License 1.1: https://openfontlicense.org
+Subset to Latin characters and the peso sign for this project; bundled locally (no CDN).

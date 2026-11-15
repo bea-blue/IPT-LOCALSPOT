@@ -1,0 +1,5 @@
+# Safety net for projects kept inside XAMPP's htdocs folder:
+# block EVERYTHING in the project root (config, .env, database/, storage/, logs...).
+# Only public/ re-allows access with its own .htaccess.
+Require all denied
+Options -Indexes

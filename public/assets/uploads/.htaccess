@@ -1,0 +1,4 @@
+# Never run scripts from the uploads folder (uploads always get a .jpg, .png or .webp name).
+<FilesMatch "\.(php|phtml|phar|pl|py|cgi|sh)$">
+    Require all denied
+</FilesMatch>
