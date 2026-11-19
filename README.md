@@ -22,7 +22,7 @@ A local destination **content management system** for Angeles City, Pampanga, bu
   Nobody changes their own role and the last developer cannot be removed. Rules live in `app/Support/Roles.php` and are checked on the server (403 otherwise).
 - The 10 demo listings are managed by a labelled test account, `demo-owner@localspot.test` (it cannot log in); no permit is on file for them.
 
-> Listings are **10 real Angeles City places** (8 published, 2 draft), imported with their source link and the date checked (`docs/listing-sources.md`). Unknown prices, settings and hours are shown as "not confirmed", never guessed. Each listing has **two photos** shown with credit, but **reuse permission is not verified** for any of the 20 (`docs/image-sources.md`).
+> Listings are **10 real Angeles City places** (8 published, 2 draft), imported with their source link and the date checked. Unknown prices, settings and hours are shown as "not confirmed", never guessed. Each listing has **two photos** shown with credit, but **reuse permission is not verified** for any of the 20.
 
 ## Updating a database created before Nov 15, 2026
 Run these once, in this order, from the project folder (MySQL running in XAMPP):
@@ -33,7 +33,7 @@ C:\xampp\php\php.exe database\import-menus.php
 ```
 Make the first developer: sign up on the site with your email, then run
 `C:\xampp\php\php.exe database\set-role.php you@example.com developer`. After that, developers and managers add staff from **Staff** in the staff panel (`/admin`). Step G turns the old admin account into a developer.
-`import-menus.php` adds the estimated budgets (shown with "Est."), menu notes and menu photos/links for the 8 published places (see `docs/listing-sources.md`).
+`import-menus.php` adds the estimated budgets (shown with "Est."), menu notes and menu photos/links for the 8 published places.
 `migrate.php up` lets budgets, setting and photo be "unknown", adds price unit, source link, date checked and a demo flag, renames "Study Spaces" to "Study & Work Spaces", moves the 8 old fictional places to draft (marked "Demo record" in the admin table), creates the `place_images` table (several photos per place) and the `reviews` table, adds budget estimates and menus, and (step F) adds `users.role` (existing accounts become admin), `reviews.user_id` and the payment columns. It deletes nothing and skips steps already done. `import-listings.php --update` fills in the payment options and never touches the Est. budgets.
 If you already ran an earlier version of the import, run it with `--update` so the old listings get the new details.
 To undo: `import-listings.php --remove`, then `import-menus.php --remove` and `migrate.php down` seven times (it undoes one step at a time; undoing step F deletes member accounts and undoing the reviews step deletes reviews, so both ask you to type yes first).
@@ -92,7 +92,7 @@ Without Composer:
 ```
 C:\xampp\php\php.exe tests\run.php
 ```
-Composer is used **only** for PHPUnit. The app and SpotCore don't use Composer's autoloader or any packages, so LocalSpot runs even without a `vendor/` folder. Manual and acceptance test results are in `docs/test-checklist.md`.
+Composer is used **only** for PHPUnit. The app and SpotCore don't use Composer's autoloader or any packages, so LocalSpot runs even without a `vendor/` folder.
 
 ## Project structure
 ```
@@ -112,7 +112,6 @@ database/         schema.sql, seed.php, migrate.php, import-listings.php (CLI on
 storage/          cache/ (weather) and logs/ (outside public/)
 tests/            *Test.php, run.php (SpotCore runner), phpunit-bootstrap.php, setup.php
 composer.json     Dev-only dependency: phpunit/phpunit ^9.6 (PHP 8.0 compatible)
-docs/             documentation, ERD, test checklist, presentation script
 bootstrap.php     Loads autoloader, .env, config, database
 router.php        Router script for PHP's built-in server
 ```
@@ -127,4 +126,4 @@ router.php        Router script for PHP's built-in server
 | Port 8000 busy | Use `-S localhost:8080 ...` instead. |
 
 ## Credits
-Weather data by [Open-Meteo.com](https://open-meteo.com/) (CC BY 4.0). Inter font by The Inter Project Authors (SIL Open Font License), bundled locally. Venue photos: see `docs/image-sources.md` for credits and permission status.
+Weather data by [Open-Meteo.com](https://open-meteo.com/) (CC BY 4.0). Inter font by The Inter Project Authors (SIL Open Font License), bundled locally. Venue photos are credited on each place page; reuse permission is not verified.
